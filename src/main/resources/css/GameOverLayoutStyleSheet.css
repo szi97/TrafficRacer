@@ -1,0 +1,19 @@
+.label{
+	-fx-font: 20px "Bold Italic";
+	-fx-text-fill: #FFFFFF;
+}
+
+.label#gameover{
+	-fx-font: 30px "Bold Italic";
+	-fx-text-fill: #FF0000;
+}
+
+.button{
+	-fx-font: 20px "Bold Italic";
+	-fx-text-fill: #FFFFFF;
+    -fx-background-color: #000000;
+}
+
+.button:hover{
+	-fx-background-color: #333333;
+}

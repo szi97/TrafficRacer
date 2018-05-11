@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" stylesheets="@../css/AchievementsLayoutStyleSheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tsz.game.controller.AchievementsController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#22800fc5" height="600.0" layoutX="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="320.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7e7f80" height="600.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="80.0" />
+      <Line endX="600.0" endY="70.0" layoutX="-230.0" layoutY="230.0" rotate="90.0" startY="70.0" stroke="WHITE" strokeWidth="5.0" />
+      <Label layoutX="89.0" layoutY="60.0" text="Get the score of 0" />
+      <Label layoutX="89.0" layoutY="130.0" text="Get the score of 100 on easy." />
+      <Label layoutX="89.0" layoutY="200.0" text="Get the score of 1000 on easy." />
+      <Label layoutX="89.0" layoutY="270.0" text="Get the score of 100 on hard." />
+      <Label layoutX="89.0" layoutY="340.0" text="Get the highest score on easy" />
+      <Label layoutX="89.0" layoutY="410.0" text="Get the highest sore on medium" />
+      <Label layoutX="89.0" layoutY="480.0" text="Get the highest score on hard." />
+      <Rectangle fx:id="inexpert" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="skillfullBeginner" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="130.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="patient" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="professional" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="270.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="championOnEasy" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="340.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="championOnMedium" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="410.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="championOnHard" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="480.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+   </children>
+</Pane>

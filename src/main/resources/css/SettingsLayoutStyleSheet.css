@@ -1,0 +1,49 @@
+.button{
+	-fx-background-color: transparent;
+	-fx-text-fill: #FFFFFF;
+}
+
+.button:hover{
+	-fx-text-fill: #932b2b;
+}
+
+.button#black{
+    -fx-background-color: #000000;
+}
+
+.button#red{
+    -fx-background-color: #ab0303;
+}
+
+.button#blue{
+    -fx-background-color: #030c6e;
+}
+
+.button#green{
+    -fx-background-color: #09a161;
+}
+
+.button#orange{
+    -fx-background-color: #e58006;
+}
+
+.label{
+	-fx-font: 30px "Bold Italic";
+	-fx-text-fill: #FFFFFF;
+}
+
+.label#back{
+	-fx-font: 20px "Bold Italic";
+	-fx-text-fill: #FFFFFF;
+}
+
+.button:pressed{
+ 	-fx-border-color: black;
+	-fx-border-width: 2;
+	-fx-border-style: solid;
+	-fx-text-fill: #FF0000;
+}
+
+.polygon{
+	-fx-fill: #FFFFFF;
+}

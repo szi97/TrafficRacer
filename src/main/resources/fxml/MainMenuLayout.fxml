@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tsz.game.controller.MainMenuController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#01942d" height="600.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="400.0" />
+      <Separator layoutX="47.0" orientation="VERTICAL" prefHeight="600.0" scaleX="2.0" />
+      <Separator layoutX="353.0" orientation="VERTICAL" prefHeight="600.0" scaleX="2.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f9090" height="600.0" layoutX="50.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="300.0" />
+      <Button layoutX="78.0" layoutY="80.0" mnemonicParsing="false" onMouseClicked="#startGame" prefHeight="56.0" prefWidth="244.0" stylesheets="@../css/MainMenuLayoutStyleSheet.css" text="Start Game" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="71.0" layoutY="140.0" mnemonicParsing="false" onAction="#showAchievements" prefHeight="56.0" prefWidth="258.0" stylesheets="@../css/MainMenuLayoutStyleSheet.css" text="Achievements" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="78.0" layoutY="200.0" mnemonicParsing="false" onAction="#showSettings" prefHeight="56.0" prefWidth="244.0" stylesheets="@../css/MainMenuLayoutStyleSheet.css" text="Settings" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="78.0" layoutY="320.0" mnemonicParsing="false" onAction="#exitGame" prefHeight="56.0" prefWidth="244.0" stylesheets="@../css/MainMenuLayoutStyleSheet.css" text="Exit Game" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Button>
+      <TextField fx:id="playerName" layoutX="115.0" layoutY="460.0" onAction="#setPlayerName" promptText="anonymus" />
+      <Label layoutX="157.0" layoutY="431.0" text="Player name:" />
+      <Button layoutX="78.0" layoutY="260.0" mnemonicParsing="false" onAction="#showTopList" onMouseClicked="#showTopList" prefHeight="56.0" prefWidth="244.0" stylesheets="@../css/MainMenuLayoutStyleSheet.css" text="Top List" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

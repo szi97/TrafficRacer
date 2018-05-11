@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" stylesheets="@../css/SettingsLayoutStyleSheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tsz.game.controller.SettingsController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#01942d" height="600.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="400.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8f9090" height="600.0" layoutX="50.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="300.0" />
+      <Separator layoutX="350.0" orientation="VERTICAL" prefHeight="600.0" />
+      <Separator layoutX="50.0" orientation="VERTICAL" prefHeight="600.0" />
+      <Button fx:id="black" layoutX="96.0" layoutY="161.0" mnemonicParsing="false" onAction="#setColor" />
+      <Button fx:id="red" layoutX="143.0" layoutY="161.0" mnemonicParsing="false" onAction="#setColor" textFill="#ab0303" />
+      <Button fx:id="blue" layoutX="190.0" layoutY="161.0" mnemonicParsing="false" onAction="#setColor" textFill="#030c6e" />
+      <Button fx:id="green" layoutX="243.0" layoutY="161.0" mnemonicParsing="false" onAction="#setColor" textFill="#09a161" />
+      <Button fx:id="orange" layoutX="291.0" layoutY="161.0" mnemonicParsing="false" onAction="#setColor" textFill="#e58006" />
+      <Label layoutX="160.0" layoutY="111.0" text="Color" />
+      <Label layoutX="132.0" layoutY="255.0" text="Difficulty" />
+      <Button fx:id="easy" layoutX="83.0" layoutY="334.0" mnemonicParsing="false" onAction="#setDifficulty" text="Easy" />
+      <Button fx:id="medium" layoutX="168.0" layoutY="334.0" mnemonicParsing="false" onAction="#setDifficulty" text="Medium" />
+      <Button fx:id="hard" layoutX="269.0" layoutY="334.0" mnemonicParsing="false" onAction="#setDifficulty" text="Hard" />
+      <Polygon fill="WHITE" layoutX="71.0" layoutY="560.0" onMouseClicked="#backToMainMenu" rotate="270.0" scaleX="0.3" scaleY="0.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+        <points>
+          <Double fx:value="-50.0" />
+          <Double fx:value="40.0" />
+          <Double fx:value="50.0" />
+          <Double fx:value="40.0" />
+          <Double fx:value="0.0" />
+          <Double fx:value="-60.0" />
+        </points>
+      </Polygon>
+      <Label fx:id="back" layoutX="90.0" layoutY="538.0" onMouseClicked="#backToMainMenu" text="Back" />
+   </children>
+</Pane>
