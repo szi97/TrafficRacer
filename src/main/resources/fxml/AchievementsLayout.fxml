@@ -26,5 +26,6 @@
       <Rectangle fx:id="championOnEasy" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="340.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Rectangle fx:id="championOnMedium" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="410.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Rectangle fx:id="championOnHard" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="480.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Button layoutX="310.0" layoutY="547.0" mnemonicParsing="false" text="Back" />
    </children>
 </Pane>

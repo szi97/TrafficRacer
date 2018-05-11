@@ -23,16 +23,6 @@
       <Button fx:id="easy" layoutX="83.0" layoutY="334.0" mnemonicParsing="false" onAction="#setDifficulty" text="Easy" />
       <Button fx:id="medium" layoutX="168.0" layoutY="334.0" mnemonicParsing="false" onAction="#setDifficulty" text="Medium" />
       <Button fx:id="hard" layoutX="269.0" layoutY="334.0" mnemonicParsing="false" onAction="#setDifficulty" text="Hard" />
-      <Polygon fill="WHITE" layoutX="71.0" layoutY="560.0" onMouseClicked="#backToMainMenu" rotate="270.0" scaleX="0.3" scaleY="0.3" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-        <points>
-          <Double fx:value="-50.0" />
-          <Double fx:value="40.0" />
-          <Double fx:value="50.0" />
-          <Double fx:value="40.0" />
-          <Double fx:value="0.0" />
-          <Double fx:value="-60.0" />
-        </points>
-      </Polygon>
-      <Label fx:id="back" layoutX="90.0" layoutY="538.0" onMouseClicked="#backToMainMenu" text="Back" />
+      <Label fx:id="back" layoutX="285.0" layoutY="545.0" onMouseClicked="#backToMainMenu" text="Back" />
    </children>
 </Pane>

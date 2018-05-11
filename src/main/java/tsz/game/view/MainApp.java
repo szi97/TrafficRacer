@@ -162,7 +162,8 @@ public class MainApp extends Application {
 		
 		logger.info("Game tarted.");
 		
-		game.startGame();
+		game.startGame();		
+		
 	}
 	
 	public void showGameOverWindow() {
@@ -183,6 +184,26 @@ public class MainApp extends Application {
 			stage.show();
 			
 			logger.info("Game Over Window shown.");
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void showInvalidPlayername() {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(this.getClass().getClassLoader().getResource("fxml/InvalidPlayername.fxml"));
+			Pane invalidPlayernameLayout = (Pane) loader.load();
+			
+			Stage stage = new Stage();
+			Scene scene = new Scene(invalidPlayernameLayout);
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.centerOnScreen();
+			stage.show();
+			
+			logger.info("Invalid playername window shown.");
 			
 		} catch (IOException e) {
 			e.printStackTrace();

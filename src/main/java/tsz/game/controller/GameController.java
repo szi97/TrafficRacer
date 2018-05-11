@@ -24,7 +24,6 @@ public class GameController implements ActionOnKeyEvents  {
 	private MainApp main;
 	private GameData gamedata;
 	private GameDataDAO gamedataDAO;
-	private String difficulty = "easy";
 	
 	Logger logger = LoggerFactory.getLogger("GameController.class");
 	
@@ -51,14 +50,6 @@ public class GameController implements ActionOnKeyEvents  {
 	public void setGameView(GameView view, GameWindow window) {
 		this.view = view;
 		this.gameWindow = window;
-	}
-	
-	public void setDifficulty(String difficulty) {
-		this.difficulty = difficulty;
-	}
-	
-	public String getDifficulty() {
-		return this.difficulty;
 	}
 
 	@Override
@@ -109,7 +100,6 @@ public class GameController implements ActionOnKeyEvents  {
 		};
 	}
 	
-	//testable
 	private void isCrashed(PlayersCar player) {
 		for(Car i : gameWindow.getOCars()) {
 			if( Math.abs(i.getX()-player.getX()) < 70 &&
@@ -127,7 +117,7 @@ public class GameController implements ActionOnKeyEvents  {
 		gamedata = new GameData();
 		this.gamedata.setFinalScore(gameWindow.getPlayer().getScore());
 		this.gamedata.setPlayerName(gameWindow.getPlayer().getName());
-		this.gamedata.setDifficulty(this.getDifficulty());
+		this.gamedata.setDifficulty(gameWindow.getPlayer().getDifficulty());
 		
 		gamedataDAO = new GameDataDAO();
 		gamedataDAO.saveGameData(this.gamedata);

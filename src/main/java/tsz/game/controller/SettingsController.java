@@ -21,7 +21,7 @@ public class SettingsController extends ViewController {
 	@FXML
 	public void setDifficulty(ActionEvent event) {
 		button = (Button) event.getSource();
-		this.main.getGameController().setDifficulty(button.getId());
+		this.main.getPlayer().setDifficulty(button.getId());
 		switch(button.getId()) {
 		case "easy": this.main.getPlayer().getPlayersCar().setSpeed(1);
 		case "medium": this.main.getPlayer().getPlayersCar().setSpeed(1.5f);

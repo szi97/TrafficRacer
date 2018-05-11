@@ -5,7 +5,9 @@ import org.slf4j.LoggerFactory;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
 public class MainMenuController extends ViewController {
 
@@ -15,9 +17,17 @@ public class MainMenuController extends ViewController {
 	private TextField playerName;
 	
 	@FXML
+	private Label invalid;
+	
+	@FXML
 	public void startGame() {
-		this.setPlayerName();
-		this.main.showGame();
+		if(playerName.getText().matches("[A-Za-z0-9]+")) {
+			this.setPlayerName();
+			this.main.showGame();
+		} else {
+			invalid.setTextFill(Color.DARKRED);
+		}
+		
 	}
 	
 	@FXML

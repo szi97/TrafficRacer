@@ -11,7 +11,6 @@ public class Car {
 	private static double carHeight = 100;
 	private String color;
 	protected float speed;
-	
 	public Car() {
 		this.x=0;
 		this.y=0;

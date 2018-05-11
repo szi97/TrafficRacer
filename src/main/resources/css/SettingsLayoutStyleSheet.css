@@ -37,6 +37,10 @@
 	-fx-text-fill: #FFFFFF;
 }
 
+.label#back:hover{
+	-fx-text-fill: #932b2b;
+}
+
 .button:pressed{
  	-fx-border-color: black;
 	-fx-border-width: 2;

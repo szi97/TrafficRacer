@@ -5,6 +5,7 @@ public class Player {
 	private PlayersCar playersCar;
 	private String playername = "anonymus";
 	private int score;
+	private String difficulty = "easy";
 	
 	public Player() {
 		this.playersCar = new PlayersCar();
@@ -29,6 +30,18 @@ public class Player {
 	
 	public int getScore() {
 		return this.score;
+	}
+	
+	public boolean isPlayerNameValid() {
+		return playername.matches("[A-Za-z0-9]+");
+	}
+
+	public String getDifficulty() {
+		return difficulty;
+	}
+
+	public void setDifficulty(String difficulty) {
+		this.difficulty = difficulty;
 	}
 	
 }
