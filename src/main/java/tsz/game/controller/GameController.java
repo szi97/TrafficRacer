@@ -17,41 +17,108 @@ import tsz.game.view.ActionOnKeyEvents;
 import tsz.game.view.GameView;
 import tsz.game.view.MainApp;
 
+/**
+ * Provides functionality for the game.
+ * 
+ * @author szi
+ *
+ */
 public class GameController implements ActionOnKeyEvents  {
+	/**
+	 * Last time when a new car has been added.
+	 */
 	private long last = 1;
+	
+	/**
+	 * GameWindow.
+	 */
 	private GameWindow gameWindow;
+	
+	/**
+	 * GameView.
+	 */
 	private GameView view;
+	
+	/**
+	 * MainApp.
+	 */
 	private MainApp main;
+	
+	/**
+	 * GameData.
+	 */
 	private GameData gamedata;
+	
+	/**
+	 * GameDataDAO.
+	 */
 	private GameDataDAO gamedataDAO;
 	
+	/**
+	 * Logger.
+	 */
 	Logger logger = LoggerFactory.getLogger("GameController.class");
 	
-	private AnimationTimer addTimer;
-	private AnimationTimer moveTimer;
+	/**
+	 * ActionTimer for moving the cars down.
+	 */
+	private AnimationTimer obstacleTimer;
+	
+	/**
+	 * ActionTimer for moving the player's car up.
+	 */
 	private AnimationTimer movingUp;
+	
+	/**
+	 * ActionTimer for moving the player's car down.
+	 */
 	private AnimationTimer movingDown;
+	
+	/**
+	 * ActionTimer for moving the player's car right.
+	 */
 	private AnimationTimer movingRight;
+	
+	/**
+	 * ActionTimer for moving the player's car left.
+	 */
 	private AnimationTimer movingLeft;
 	
+	/**
+	 * Start the game.
+	 */
 	public void startGame() {
 		initTimers();
 		
 	}
 	
+	/**
+	 * @param main - Main App.
+	 */
 	public void setMainApp(MainApp main) {
 		this.main = main;
 	}
 	
+	/**
+	 * @return the game's window.
+	 */
 	public GameWindow getWindow() {
 		return this.gameWindow;
 	}
 	
+	/**
+	 * @param view - the Game's view.
+	 * @param window - the Game's window.
+	 */
 	public void setGameView(GameView view, GameWindow window) {
 		this.view = view;
 		this.gameWindow = window;
 	}
 
+	/**
+	 * Move the player's car to the right direction.
+	 * @see tsz.game.view.ActionOnKeyEvents#moving()
+	 */
 	@Override
 	public EventHandler<? super KeyEvent> moving() {		
 		
@@ -78,6 +145,10 @@ public class GameController implements ActionOnKeyEvents  {
 		};
 	}
 	
+	/**
+	 * Stop the player's car moving.
+	 * @see tsz.game.view.ActionOnKeyEvents#stopMoving()
+	 */
 	@Override
 	public EventHandler<? super KeyEvent> stopMoving(){
 		return keyEvent -> {
@@ -100,10 +171,14 @@ public class GameController implements ActionOnKeyEvents  {
 		};
 	}
 	
+	/**
+	 * Check whether the player's car is crashed with an obstacle car.
+	 * @param player - the player's car.
+	 */
 	private void isCrashed(PlayersCar player) {
 		for(Car i : gameWindow.getOCars()) {
-			if( Math.abs(i.getX()-player.getX()) < 70 &&
-				Math.abs(i.getY()-player.getY()) < 100)
+			if( Math.abs(i.getX()-player.getX()) < 68 &&
+				Math.abs(i.getY()-player.getY()) < 102)
 				if(Math.sqrt(Math.pow(i.getX()-player.getX(),2)+Math.pow(i.getY()-player.getY(), 2)) < 100) {
 					logger.info("Cars crashed.");
 					endTheGame();
@@ -111,6 +186,9 @@ public class GameController implements ActionOnKeyEvents  {
 			}
 	}
 	
+	/**
+	 * End the game.
+	 */
 	public void endTheGame() {
 		stopTimers();
 		
@@ -127,9 +205,11 @@ public class GameController implements ActionOnKeyEvents  {
 		this.main.showGameOverWindow();
 	}
 	
+	/**
+	 * Stop all the timers.
+	 */
 	public void stopTimers() {
-		this.moveTimer.stop();
-		this.addTimer.stop();
+		this.obstacleTimer.stop();
 		this.movingUp.stop();
 		this.movingDown.stop();
 		this.movingLeft.stop();
@@ -139,24 +219,13 @@ public class GameController implements ActionOnKeyEvents  {
 	}
 	
 
+	/**
+	 * Init all timers.
+	 */
 	public void initTimers() {
 		PlayersCar player = this.gameWindow.getPlayer().getPlayersCar();
-		
-		addTimer = new AnimationTimer() {
-			
-			@Override
-			public void handle(long now) {
-				long rate = (long) (new Random().nextInt(10)+20)* 100000000L;
-				if(now - last > rate){
-					gameWindow.addNewCar(gameWindow.getOCars());
-					last = now;
-				}
-				
-			}
-		};
-		addTimer.start();
 	
-		moveTimer = new AnimationTimer() {
+		obstacleTimer = new AnimationTimer() {
 			
 			@Override
 			public void handle(long now) {
@@ -164,10 +233,16 @@ public class GameController implements ActionOnKeyEvents  {
 				gameWindow.deleteCar();
 				view.draw(gameWindow);
 				
+				long rate = (long) (new Random().nextInt(10)+20)* 100000000L;
+				if(now - last > rate){
+					gameWindow.addNewCar(gameWindow.getOCars());
+					last = now;
+				}
+				
 				isCrashed(gameWindow.getPlayer().getPlayersCar());
 			}
 		};
-		moveTimer.start();
+		obstacleTimer.start();
 		
 		movingLeft = new AnimationTimer() {
 			

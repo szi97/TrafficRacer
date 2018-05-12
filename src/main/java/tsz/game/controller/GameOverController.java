@@ -8,18 +8,41 @@ import javafx.stage.Stage;
 import tsz.game.DAO.GameDataDAO;
 import tsz.game.service.GameOverService;
 
+/**
+ * Provides functionality for the Top List View.
+ * 
+ * @author szi
+ *
+ */
 public class GameOverController extends ViewController {
+	
+	/**
+	 * Button for getting back to the Main Menu.
+	 */
 	@FXML
 	Button menu;
 	
+	/**
+	 * Button for starting a new game.
+	 */
 	@FXML
 	Button newGame;
 	
+	/**
+	 * Label for showing the player's score.
+	 */
 	@FXML
 	Label playerScore;
+	
+	/**
+	 * Label for showing the highest score.
+	 */
 	@FXML
 	Label maxScore;
 	
+	/**
+	 * Starts a new game.
+	 */
 	@FXML
 	public void newGame() {
 		Stage stage = (Stage) newGame.getScene().getWindow();
@@ -27,6 +50,9 @@ public class GameOverController extends ViewController {
 		this.main.showGame();
 	}
 	
+	/**
+	 * Gets us back to the main menu.
+	 */
 	@FXML
 	public void backToTheMenu() {
 		Stage stage = (Stage) menu.getScene().getWindow();
@@ -34,12 +60,18 @@ public class GameOverController extends ViewController {
 		this.main.showMainMenu();
 	}
 	
+	/**
+	 * Close the game.
+	 */
 	@FXML
 	public void exitGame() {
 		Platform.exit();
 	}
 	
 	
+	/**
+	 * Write the actual score and the highest score to the window.
+	 */
 	public void writeTheScoresOnTheScreen() {
 		GameOverService gameService = new GameOverService();
 		GameDataDAO dao = new GameDataDAO();

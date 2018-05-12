@@ -4,12 +4,24 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+/**
+ * Provides functionality for the Settings view.
+ * 
+ * @author szi
+ *
+ */
 public class SettingsController extends ViewController {
 	
+	/**
+	 * Button for the source of the event.
+	 */
 	@FXML
 	Button button;
 	
-	//setColor
+	/**
+	 * Sets the color of car.
+	 * @param event - an event.
+	 */
 	@FXML
 	public void setColor(ActionEvent event) {
 		button = (Button) event.getSource();
@@ -17,7 +29,10 @@ public class SettingsController extends ViewController {
 		
 	}
 	
-	//setDifficulty
+	/**
+	 * Sets the difficulty of the game.
+	 * @param event - an event.
+	 */
 	@FXML
 	public void setDifficulty(ActionEvent event) {
 		button = (Button) event.getSource();
@@ -29,6 +44,9 @@ public class SettingsController extends ViewController {
 		}
 	}
 	
+	/**
+	 * Gets us back to the Main Menu.
+	 */
 	@FXML
 	public void backToMainMenu() {
 		this.main.showMainMenu();

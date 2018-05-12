@@ -78,7 +78,7 @@ public class AchievementServiceTest {
 		gamedataArray.add(gamedata2);
 		gamedataArray.add(gamedata3);
 		
-		assertTrue(service.isSkillfullBeginner(gamedataArray, "Pisti"));
+		assertTrue(service.isSkillfulBeginner(gamedataArray, "Pisti"));
 	}
 	
 	@Test
@@ -94,13 +94,13 @@ public class AchievementServiceTest {
 		gamedata2.setDifficulty("hard");
 		gamedata3.setDifficulty("medium");
 		gamedata1.setFinalScore(10);
-		gamedata2.setFinalScore(0);
+		gamedata2.setFinalScore(300);
 		gamedata3.setFinalScore(10);
 		gamedataArray.add(gamedata1);
 		gamedataArray.add(gamedata2);
 		gamedataArray.add(gamedata3);
 		
-		assertFalse(service.isSkillfullBeginner(gamedataArray, "Pisti"));
+		assertFalse(service.isSkillfulBeginner(gamedataArray, "Pisti"));
 	}
 	
 	@Test
@@ -138,7 +138,7 @@ public class AchievementServiceTest {
 		gamedata2.setDifficulty("hard");
 		gamedata3.setDifficulty("medium");
 		gamedata1.setFinalScore(500);
-		gamedata2.setFinalScore(0);
+		gamedata2.setFinalScore(1200);
 		gamedata3.setFinalScore(10);
 		gamedataArray.add(gamedata1);
 		gamedataArray.add(gamedata2);
@@ -176,14 +176,14 @@ public class AchievementServiceTest {
 		GameData gamedata2 = new GameData();
 		GameData gamedata3 = new GameData();
 		gamedata1.setPlayerName("Pisti");
-		gamedata2.setPlayerName("Merci");
+		gamedata2.setPlayerName("Pisti");
 		gamedata3.setPlayerName("Pisti");
 		gamedata1.setDifficulty("easy");
 		gamedata2.setDifficulty("hard");
-		gamedata3.setDifficulty("hards");
+		gamedata3.setDifficulty("easy");
 		gamedata1.setFinalScore(10);
 		gamedata2.setFinalScore(45);
-		gamedata3.setFinalScore(10);
+		gamedata3.setFinalScore(150);
 		gamedataArray.add(gamedata1);
 		gamedataArray.add(gamedata2);
 		gamedataArray.add(gamedata3);

@@ -14,34 +14,76 @@ import javafx.scene.Group;
 import tsz.game.model.Car;
 import tsz.game.model.GameWindow;
 
+/**
+ * Class of the game view.
+ * @author szi
+ *
+ */
 public class GameView extends Group{
+	/**
+	 * Canvas to daw on.
+	 */
 	private Canvas canvas;
+	/**
+	 * Graphic context.
+	 */
 	private GraphicsContext graphicsContext;
+	/**
+	 * Width of the game.
+	 */
 	private static final int WIDTH = 400;
+	/**
+	 * Height of the game.
+	 */
 	private static final int HEIGHT = 700;
-	private static int numberOfLanes = 5;
-	private static int laneWidth = WIDTH / numberOfLanes;
+	/**
+	 * Number of lanes in the game.
+	 */
+	private int numberOfLanes = 5;
+	/**
+	 * Width of the lanes.
+	 */
+	private int laneWidth = WIDTH / numberOfLanes;
 	
+	/**
+	 * @return the width of the game.
+	 */
 	public static int getWidth() {
 		return WIDTH;
 	}
+	
+	/**
+	 * @return the height of the game.
+	 */
 	public static int getHeight() {
 		return HEIGHT;
 	}
 	
-	public static int getLaneWidth() {
+	/**
+	 * @return the width of the lanes.
+	 */
+	public int getLaneWidth() {
 		return laneWidth;
 	}
 	
+	/**
+	 * @param n - set the number of lanes to n.
+	 */
 	public void setNumberOfLanes(int n) {
-		GameView.numberOfLanes = n;
+		this.numberOfLanes = n;
 		laneWidth = WIDTH / numberOfLanes;
 	}
 	
+	/**
+	 * Constructor.
+	 */
 	public GameView() {
 		setUp();
 	}
 		
+	/**
+	 * Initialize the GameView.
+	 */
 	public void setUp() {
 		canvas = new Canvas(WIDTH,HEIGHT);
 
@@ -50,12 +92,16 @@ public class GameView extends Group{
 		getChildren().add(canvas);
 	}
 	
+	/**
+	 * Draws on the game window.
+	 * @param window - Window of the game.
+	 */
 	public void draw(GameWindow window) {
 		graphicsContext.clearRect(0, 0, WIDTH, HEIGHT);
 		
-		for(int i = 0; i < GameView.numberOfLanes ; i++) {
+		for(int i = 0; i < this.numberOfLanes ; i++) {
 			graphicsContext.setFill(Color.WHITE);
-			graphicsContext.fillRect((i+1)*GameView.getLaneWidth(), 0, 1, GameView.HEIGHT);
+			graphicsContext.fillRect((i+1)*this.getLaneWidth(), 0, 1, GameView.HEIGHT);
 		}
 				
 		drawOCars(window);
@@ -64,6 +110,10 @@ public class GameView extends Group{
 		
 	}
 	
+	/**
+	 * Draws the obstacle cars on the window.
+	 * @param window - window of the game.
+	 */
 	public void drawOCars(GameWindow window) {
 		 for(Car i : window.getOCars()) {
 				try {
@@ -74,7 +124,11 @@ public class GameView extends Group{
 			}
 	 }
 	 
-	 public void drawPlayersCar(GameWindow window) {
+	 /**
+	  * Draws player's car on the window.
+	 * @param window - window of the game.
+	 */
+	public void drawPlayersCar(GameWindow window) {
 		 try {
 				graphicsContext.drawImage(
 						SwingFXUtils.toFXImage(ImageIO.read(this.getClass().getResource("/Images/playerCars/" + window.getPlayer().getPlayersCar().getColor() + ".png")),null), 
@@ -85,7 +139,11 @@ public class GameView extends Group{
 			}
 	 }
 	 
-	 public void showScore(GameWindow window) {
+	 /**
+	  * Draws the actual score on the window.
+	 * @param window - window of the game.
+	 */
+	public void showScore(GameWindow window) {
 		 graphicsContext.setTextAlign(TextAlignment.CENTER);
 	        graphicsContext.setTextBaseline(VPos.CENTER);
 	        graphicsContext.fillText(

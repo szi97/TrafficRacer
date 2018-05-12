@@ -20,11 +20,26 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import tsz.game.model.GameData;
 
+/**
+ * Handles width game datas.
+ * 
+ * @author szi
+ *
+ */
 public class GameDataDAO {
+	/**
+	 * The container array of read datas.
+	 */
 	private JSONArray jsonArray;
 	
+	/**
+	 * Logger.
+	 */
 	Logger logger = LoggerFactory.getLogger("GameDataDAO.class");
 	
+	/**
+	 * @return list of all the stored game data.
+	 */
 	public List<GameData> getAllGameData(){
 		JSONParser parser = new JSONParser();
 		List<GameData> allGamedata = new ArrayList<GameData>();
@@ -65,6 +80,10 @@ public class GameDataDAO {
 		return allGamedata;
 	}
 	
+	/**
+	 * Write the gameplay data .
+	 * @param gamedata - the last gameplay data to be stored.
+	 */
 	@SuppressWarnings("unchecked")
 	public void saveGameData(GameData gamedata) {
 		ObjectMapper mapper = new ObjectMapper();

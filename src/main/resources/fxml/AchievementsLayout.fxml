@@ -17,15 +17,15 @@
       <Label layoutX="89.0" layoutY="200.0" text="Get the score of 1000 on easy." />
       <Label layoutX="89.0" layoutY="270.0" text="Get the score of 100 on hard." />
       <Label layoutX="89.0" layoutY="340.0" text="Get the highest score on easy" />
-      <Label layoutX="89.0" layoutY="410.0" text="Get the highest sore on medium" />
+      <Label layoutX="89.0" layoutY="410.0" text="Get the highest score on medium" />
       <Label layoutX="89.0" layoutY="480.0" text="Get the highest score on hard." />
       <Rectangle fx:id="inexpert" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Rectangle fx:id="skillfullBeginner" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="130.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
+      <Rectangle fx:id="skillfulBeginner" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="130.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Rectangle fx:id="patient" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Rectangle fx:id="professional" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="270.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Rectangle fx:id="championOnEasy" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="340.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Rectangle fx:id="championOnMedium" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="410.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
       <Rectangle fx:id="championOnHard" arcHeight="5.0" arcWidth="5.0" fill="#2197ff" height="20.0" layoutX="40.0" layoutY="480.0" stroke="BLACK" strokeType="INSIDE" width="20.0" />
-      <Button layoutX="310.0" layoutY="547.0" mnemonicParsing="false" text="Back" />
+      <Button layoutX="310.0" layoutY="547.0" mnemonicParsing="false" onMouseClicked="#backToMenu" text="Back" />
    </children>
 </Pane>

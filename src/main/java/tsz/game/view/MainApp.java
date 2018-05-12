@@ -24,18 +24,48 @@ import tsz.game.model.Car;
 import tsz.game.model.GameWindow;
 import tsz.game.model.Player;;
 
+/**
+ * The Main class of the application.
+ * 
+ * @author szi
+ *
+ */
 public class MainApp extends Application {
-	private List<Car> oCars;
+	
+	/**
+	 * List of obstacle cars.
+	 */
+	private List<Car> obstacleCars;
+	
+	/**
+	 * Player.
+	 */
 	private Player player;
 	
+	/**
+	 * GameController.
+	 */
 	private GameController game;
-
+	
+	/**
+	 * The primary stage.
+	 */
 	private Stage primaryStage;
 	
+	/**
+	 * Handler for KeyEvents.
+	 */
 	private ActionOnKeyEvents eventhandler;
 	
+	/**
+	 * Logger.
+	 */
 	Logger logger = LoggerFactory.getLogger("MainApp.class");
 	
+	/* 
+	 * JavaFX start method.
+	 * {@link javafx.application.Application#start(javafx.stage.Stage)}
+	 */
 	@Override
 	public void start(Stage stage) throws Exception {
 		this.primaryStage = stage;
@@ -46,6 +76,9 @@ public class MainApp extends Application {
 		showMainMenu();
 	}
 	
+	/**
+	 * Shows the Menu window.
+	 */
 	public void showMainMenu() {
 		try {
 			if (player == null )
@@ -74,6 +107,9 @@ public class MainApp extends Application {
 		}
 	}
 	
+	/**
+	 * Shows the Achievements window.
+	 */
 	public void showAchievements() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -97,6 +133,9 @@ public class MainApp extends Application {
 		}
 	}
 	
+	/**
+	 * Shows the Settings window.
+	 */
 	public void showSettings() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -119,6 +158,9 @@ public class MainApp extends Application {
 		}		
 	}
 	
+	/**
+	 * Shows the Top List window.
+	 */
 	public void showTopList() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -142,12 +184,15 @@ public class MainApp extends Application {
 		}		
 	}
 	
+	/**
+	 * Shows the Game window.
+	 */
 	public void showGame() {		
 		player.getPlayersCar().setX(160);
 		player.getPlayersCar().setY(400);
-		oCars = new ArrayList<Car>();
+		obstacleCars = new ArrayList<Car>();
 		
-		GameWindow gameWindow = new GameWindow(oCars, player);
+		GameWindow gameWindow = new GameWindow(obstacleCars, player);
 		GameView gameView = new GameView();
 		
 		game = new GameController();
@@ -166,6 +211,9 @@ public class MainApp extends Application {
 		
 	}
 	
+	/**
+	 * Shows the Game Over window.
+	 */
 	public void showGameOverWindow() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -190,46 +238,39 @@ public class MainApp extends Application {
 		}
 	}
 	
-	public void showInvalidPlayername() {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(this.getClass().getClassLoader().getResource("fxml/InvalidPlayername.fxml"));
-			Pane invalidPlayernameLayout = (Pane) loader.load();
-			
-			Stage stage = new Stage();
-			Scene scene = new Scene(invalidPlayernameLayout);
-			stage.setScene(scene);
-			stage.setResizable(false);
-			stage.centerOnScreen();
-			stage.show();
-			
-			logger.info("Invalid playername window shown.");
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
+	/**
+	 * @return the list of obstacle cars.
+	 */
 	public List<Car> getOCars(){
-		return oCars;
+		return obstacleCars;
 	}
 	
+	/**
+	 * @return the player of the game.
+	 */
 	public Player getPlayer() {
 		return player;
 	}
+
 	
-	public Scene getScene() {
-		return this.getScene();
-	}
-	
+	/**
+	 * @param game - the handler for KeyEvents.
+	 */
 	public void setHandler(GameController game) {
 		this.eventhandler = game;
 	}
 	
+	/**
+	 * @return the GameController.
+	 */
 	public GameController getGameController() {
 		return this.game;
 	}
 	
+	/**
+	 * Main method of the application.
+	 * @param args - argumentums
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}

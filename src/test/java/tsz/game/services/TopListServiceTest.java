@@ -22,6 +22,9 @@ public class TopListServiceTest {
 		gamedata1.setFinalScore(110);
 		gamedata2.setFinalScore(320);
 		gamedata3.setFinalScore(210);
+		gamedata1.setDifficulty("easy");
+		gamedata2.setDifficulty("easy");
+		gamedata3.setDifficulty("easy");
 		input.add(gamedata1);
 		input.add(gamedata2);
 		input.add(gamedata3);
@@ -31,7 +34,7 @@ public class TopListServiceTest {
 		output.add(gamedata3);
 		output.add(gamedata1);
 		
-		assertEquals(output, service.getTopTen(input));
+		assertEquals(output, service.getTopTen(input, "easy"));
 	}
 	
 	@Test
@@ -59,6 +62,17 @@ public class TopListServiceTest {
 		gamedata9.setFinalScore(220);
 		gamedata10.setFinalScore(350);
 		gamedata11.setFinalScore(40);
+		gamedata1.setDifficulty("easy");
+		gamedata2.setDifficulty("easy");
+		gamedata3.setDifficulty("easy");
+		gamedata4.setDifficulty("easy");
+		gamedata5.setDifficulty("easy");
+		gamedata6.setDifficulty("easy");
+		gamedata7.setDifficulty("easy");
+		gamedata8.setDifficulty("easy");
+		gamedata9.setDifficulty("easy");
+		gamedata10.setDifficulty("easy");
+		gamedata11.setDifficulty("easy");
 		input.add(gamedata1);
 		input.add(gamedata2);
 		input.add(gamedata3);
@@ -83,6 +97,6 @@ public class TopListServiceTest {
 		output.add(gamedata3);
 		output.add(gamedata1);
 		
-		assertEquals(output, service.getTopTen(input));
+		assertEquals(output, service.getTopTen(input,"easy"));
 	}
 }
