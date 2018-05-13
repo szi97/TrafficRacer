@@ -82,6 +82,13 @@ public class Player {
 	}
 	
 	/**
+	 * Resets score.
+	 */
+	public void resetScore() {
+		this.score = 0;
+	}
+	
+	/**
 	 * @param playername - the palyer's name.
 	 * @return whether the player's name is valid or not.
 	 */

@@ -37,7 +37,7 @@
 	-fx-pref-width: 80px;
 }
 
-.button:focused{
+.button#easy:focused, .button#medium:focused, .button#hard:focused{
 	-fx-background-color: #FFFFFF;
 	-fx-text-fill: #8f9090;
 }

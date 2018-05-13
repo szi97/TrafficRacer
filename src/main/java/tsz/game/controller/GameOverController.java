@@ -21,13 +21,7 @@ public class GameOverController extends ViewController {
 	 */
 	@FXML
 	Button menu;
-	
-	/**
-	 * Button for starting a new game.
-	 */
-	@FXML
-	Button newGame;
-	
+
 	/**
 	 * Label for showing the player's score.
 	 */
@@ -39,16 +33,6 @@ public class GameOverController extends ViewController {
 	 */
 	@FXML
 	Label maxScore;
-	
-	/**
-	 * Starts a new game.
-	 */
-	@FXML
-	public void newGame() {
-		Stage stage = (Stage) newGame.getScene().getWindow();
-		stage.close();
-		this.main.showGame();
-	}
 	
 	/**
 	 * Gets us back to the main menu.

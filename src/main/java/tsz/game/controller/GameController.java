@@ -89,7 +89,7 @@ public class GameController implements ActionOnKeyEvents  {
 	 */
 	public void startGame() {
 		initTimers();
-		
+		this.main.getPlayer().resetScore();
 	}
 	
 	/**

@@ -13,7 +13,6 @@
       <Label fx:id="gameover" layoutX="139.0" layoutY="35.0" text="Game Over" />
       <Label fx:id="playerScore" layoutX="160.0" layoutY="93.0" />
       <Label fx:id="maxScore" layoutX="105.0" layoutY="126.0" />
-      <Button fx:id="newGame" layoutX="156.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#newGame" text="New Game" />
       <Button fx:id="menu" layoutX="123.0" layoutY="240.0" mnemonicParsing="false" onMouseClicked="#backToTheMenu" text="Back to the Menu" />
       <Button fx:id="exit" layoutX="159.0" layoutY="289.0" mnemonicParsing="false" onMouseClicked="#exitGame" text="Exit Game" />
    </children>
