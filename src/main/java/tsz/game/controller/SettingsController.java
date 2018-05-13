@@ -1,5 +1,8 @@
 package tsz.game.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,6 +14,11 @@ import javafx.scene.control.Button;
  *
  */
 public class SettingsController extends ViewController {
+	
+	/**
+	 * Logger.
+	 */
+	Logger logger = LoggerFactory.getLogger("SettingsController.class");
 	
 	/**
 	 * Button for the source of the event.
@@ -27,6 +35,7 @@ public class SettingsController extends ViewController {
 		button = (Button) event.getSource();
 		this.main.getPlayer().getPlayersCar().setColor(button.getId());
 		
+		logger.info("Color has been set.");		
 	}
 	
 	/**
@@ -42,6 +51,8 @@ public class SettingsController extends ViewController {
 		case "medium": this.main.getPlayer().getPlayersCar().setSpeed(1.5f);
 		case "hard" : this.main.getPlayer().getPlayersCar().setSpeed(2);
 		}
+		
+		logger.info("Difficulty has been set.");
 	}
 	
 	/**

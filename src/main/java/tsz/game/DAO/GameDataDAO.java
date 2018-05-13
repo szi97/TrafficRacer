@@ -1,6 +1,7 @@
 package tsz.game.DAO;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -33,9 +34,24 @@ public class GameDataDAO {
 	private JSONArray jsonArray;
 	
 	/**
+	 * Relative path to the json file.
+	 */
+	String pathToDataFile;
+	
+	/**
 	 * Logger.
 	 */
 	Logger logger = LoggerFactory.getLogger("GameDataDAO.class");
+	
+	/**
+	 * Constructor.
+	 */
+	public GameDataDAO() {
+		File currentDirFile = new File("");
+		String pathToDataFile = currentDirFile.getAbsolutePath();
+		this.pathToDataFile = pathToDataFile.substring(0, pathToDataFile.lastIndexOf("/") + 1) + "json";
+		currentDirFile.delete();
+	}
 	
 	/**
 	 * @return list of all the stored game data.
@@ -45,14 +61,12 @@ public class GameDataDAO {
 		List<GameData> allGamedata = new ArrayList<GameData>();
 		JSONArray jArray = new JSONArray();
 		
-		InputStream input = GameDataDAO.class.getClassLoader().getResourceAsStream("data/json");
-		Reader reader = new InputStreamReader(input);
-		
 		try {
+			InputStream input = new FileInputStream(new File(this.pathToDataFile));
+			Reader reader = new InputStreamReader(input);
 			jArray = (JSONArray) parser.parse(reader);
 		} catch (IOException | ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.toString());
 		}
 		
 		for(int i = 0; i < jArray.size(); i++) {
@@ -71,7 +85,7 @@ public class GameDataDAO {
 				allGamedata.add(gamedata);			
 				
 			} catch (ParseException e) {
-				e.printStackTrace();
+				logger.error(e.toString());
 			}
 		}
 		
@@ -88,26 +102,45 @@ public class GameDataDAO {
 	public void saveGameData(GameData gamedata) {
 		ObjectMapper mapper = new ObjectMapper();
 		JSONParser parser = new JSONParser();
-		InputStream input = GameDataDAO.class.getClassLoader().getResourceAsStream("data/json");
-		Reader reader = new InputStreamReader(input);
-		
+			
 		try {
-			jsonArray = (JSONArray) parser.parse(reader);
-			String jsonInString;
-			jsonInString = mapper.writeValueAsString(gamedata);
-			jsonArray.add(jsonInString);
+				File dataFile = new File(this.pathToDataFile);
+
+				InputStream input = new FileInputStream(dataFile);
+				Reader reader = new InputStreamReader(input);
+					
+				jsonArray = (JSONArray) parser.parse(reader);
+				String jsonInString = mapper.writeValueAsString(gamedata);
+				jsonArray.add(jsonInString);
 			
-			PrintWriter printWriter = new PrintWriter(new File(GameDataDAO.class.getClassLoader().getResource("data/json").getPath()));
-			printWriter.write(jsonArray.toJSONString());
-			printWriter.close();
-			
+				PrintWriter printWriter = new PrintWriter(dataFile);
+				printWriter.write(jsonArray.toJSONString());
+				printWriter.close();
+							
 			logger.info("Game Data saved.");
 			
 		} catch (IOException | ParseException e) {
-			e.printStackTrace();
+			logger.error(e.toString());
+		}		
+	}
+	
+	/**
+	 * Create a JSON file, if it does not exist.
+	 */
+	public void createFileIfNotExist() {
+		File dataFile = new File(this.pathToDataFile);
+		
+		if(!dataFile.exists()) {
+			try {
+				dataFile.createNewFile();
+				PrintWriter printWriter = new PrintWriter(new File(this.pathToDataFile));
+				printWriter.write("[]");
+				printWriter.close();
+				
+				logger.info("JSON file created.");
+			} catch (IOException e) {
+				logger.error(e.toString());;
+			}
 		}
-		
-		
-		
 	}
 }

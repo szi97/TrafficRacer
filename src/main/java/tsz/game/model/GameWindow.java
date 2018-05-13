@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import tsz.game.view.GameView;
 
 /**
@@ -27,12 +24,6 @@ public class GameWindow {
 	 * The player.
 	 */
 	private Player player;
-	
-	/**
-	 * Logger.
-	 */
-	Logger logger = LoggerFactory.getLogger("GameWindow.class");
-
 	
 	/**
 	 * Constructor.
@@ -72,8 +63,6 @@ public class GameWindow {
             generatingCars(this.obstacleCars, availableLanes.get(position));
             availableLanes.remove(position);
 		}
-		
-		logger.info("New cars are added.");
             
 	}
 	

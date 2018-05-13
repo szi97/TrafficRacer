@@ -14,6 +14,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
+import tsz.game.DAO.GameDataDAO;
 import tsz.game.controller.AchievementsController;
 import tsz.game.controller.GameController;
 import tsz.game.controller.GameOverController;
@@ -73,6 +74,9 @@ public class MainApp extends Application {
 		
 		logger.info("Application started.");
 		
+		GameDataDAO dao = new GameDataDAO();
+		dao.createFileIfNotExist();
+		
 		showMainMenu();
 	}
 	
@@ -103,7 +107,7 @@ public class MainApp extends Application {
 			logger.info("Main Menu shown.");
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.toString());
 		}
 	}
 	
@@ -129,7 +133,7 @@ public class MainApp extends Application {
 			logger.info("Achievements shown");
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.toString());
 		}
 	}
 	
@@ -154,7 +158,7 @@ public class MainApp extends Application {
 			logger.info("Settings shown.");
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.toString());
 		}		
 	}
 	
@@ -180,7 +184,7 @@ public class MainApp extends Application {
 			logger.info("Top List shown.");
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.toString());
 		}		
 	}
 	
@@ -205,7 +209,7 @@ public class MainApp extends Application {
 		scene.addEventFilter(KeyEvent.KEY_RELEASED, eventhandler.stopMoving());
 		primaryStage.setScene(scene);
 		
-		logger.info("Game tarted.");
+		logger.info("Game started.");
 		
 		game.startGame();		
 		
@@ -234,7 +238,7 @@ public class MainApp extends Application {
 			logger.info("Game Over Window shown.");
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e.toString());
 		}
 	}
 	

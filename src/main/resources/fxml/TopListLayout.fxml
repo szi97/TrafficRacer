@@ -31,9 +31,9 @@
       </GridPane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3e8d47" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="400.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3e8d47" height="50.0" layoutY="550.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="400.0" />
-      <Button fx:id="easy" layoutX="23.0" layoutY="512.0" mnemonicParsing="false" onAction="#setDifficulty" stylesheets="@../css/TopListLayoutStyleSheet.css" text="Easy" />
+      <Button fx:id="easy" layoutX="23.0" layoutY="510.0" mnemonicParsing="false" onAction="#setDifficulty" stylesheets="@../css/TopListLayoutStyleSheet.css" text="Easy" />
       <Button layoutX="315.0" layoutY="550.0" mnemonicParsing="false" onMouseClicked="#backToMenu" stylesheets="@../css/TopListLayoutStyleSheet.css" text="Back" />
-      <Button fx:id="medium" layoutX="146.0" layoutY="512.0" mnemonicParsing="false" onAction="#setDifficulty" stylesheets="@../css/TopListLayoutStyleSheet.css" text="Medium" />
-      <Button fx:id="hard" layoutX="301.0" layoutY="512.0" mnemonicParsing="false" onAction="#setDifficulty" stylesheets="@../css/TopListLayoutStyleSheet.css" text="Hard" />
+      <Button fx:id="medium" layoutX="146.0" layoutY="510.0" mnemonicParsing="false" onAction="#setDifficulty" stylesheets="@../css/TopListLayoutStyleSheet.css" text="Medium" />
+      <Button fx:id="hard" layoutX="301.0" layoutY="510.0" mnemonicParsing="false" onAction="#setDifficulty" stylesheets="@../css/TopListLayoutStyleSheet.css" text="Hard" />
    </children>
 </Pane>

@@ -8,6 +8,9 @@ import javafx.scene.text.TextAlignment;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.VPos;
 import javafx.scene.Group;
@@ -44,6 +47,8 @@ public class GameView extends Group{
 	 * Width of the lanes.
 	 */
 	private int laneWidth = WIDTH / numberOfLanes;
+	
+	Logger logger = LoggerFactory.getLogger("GameView.class");
 	
 	/**
 	 * @return the width of the game.
@@ -119,7 +124,7 @@ public class GameView extends Group{
 				try {
 					graphicsContext.drawImage(SwingFXUtils.toFXImage(ImageIO.read(this.getClass().getResource("/Images/oCars/" + i.getColor() + ".png")),null), i.getX(), i.getY());
 				} catch (IOException e) {
-					e.printStackTrace();
+					logger.error(e.toString());
 				}
 			}
 	 }
@@ -135,7 +140,7 @@ public class GameView extends Group{
 						window.getPlayer().getPlayersCar().getX(), 
 						window.getPlayer().getPlayersCar().getY());
 			} catch (IOException e) {
-				e.printStackTrace();
+				logger.error(e.toString());
 			}
 	 }
 	 

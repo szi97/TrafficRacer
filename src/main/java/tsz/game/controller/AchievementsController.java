@@ -70,9 +70,7 @@ public class AchievementsController extends ViewController {
 		
 		AchievementService service = new AchievementService();
 		GameDataDAO gamedataDAO = new GameDataDAO();
-		Collection<GameData> allGamedata = gamedataDAO.getAllGameData();
-		System.out.println(allGamedata.size());
-		
+		Collection<GameData> allGamedata = gamedataDAO.getAllGameData();		
 		
 		if(service.isInexpert(allGamedata, playername)) {
 			inexpert.setFill(Color.DARKGREEN);
